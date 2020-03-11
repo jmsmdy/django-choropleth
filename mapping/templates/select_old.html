@@ -1,0 +1,19 @@
+<h1>SELECT A STATE AND ANIMAL FOR POPULATION CHOROPLETH</h1>
+
+
+<form action="{% url 'choropleth:detail'%}" method="POST">
+{% csrf_token %}
+<select id="state" name="state"> 
+{% for state_name in states %}
+    <option value="{{ state_name }}">{{ state_name }}</option>
+{% endfor %}
+</select>
+
+<select id="animal" name="animal">
+{% for animal_name in animals %}
+    <option value="{{ animal_name }}">{{ animal_name }}</option>    
+{% endfor %}
+</select>
+
+<input type="submit" value="Draw Map">
+</form>

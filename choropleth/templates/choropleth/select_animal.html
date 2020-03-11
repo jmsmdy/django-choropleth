@@ -1,0 +1,18 @@
+ <button onclick="location.href='/';">Go Back</button>
+
+
+<h1>SELECT AN ANIMAL FOR {{ state }} POPULATION CHOROPLETH</h1>
+
+<form action="{% url 'choropleth:detail'%}" method="POST">
+{% csrf_token %}
+<input type="hidden" id="state" name="state" value="{{ state }}">
+
+<select id="animal" name="animal">
+{% for animal_name in animals %}
+    <option value="{{ animal_name }}">{{ animal_name }}</option>
+{% endfor %}
+</select>
+
+<input type="submit" value="Draw Map">
+</form>
+
